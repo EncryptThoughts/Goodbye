@@ -60,6 +60,30 @@
             border-radius: 10px;
             max-width: 90%;
         }
+        .contact-form {
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 10px;
+            color: white;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            margin-top: 5px;
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+        }
+        .contact-form button {
+            margin-top: 10px;
+            padding: 10px;
+            border: none;
+            background: white;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -73,6 +97,19 @@
     </div>
     
     <div class="message">Goodbye, take care. Regards, Aryan. Contact me → aryan.xpvr@gmail.com</div>
+    
+    <form class="contact-form" action="mailto:aryan.xpvr@gmail.com" method="post" enctype="text/plain">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        
+        <button type="submit">Send</button>
+    </form>
 </body>
 </html>
 
