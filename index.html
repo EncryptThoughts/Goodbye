@@ -12,10 +12,14 @@
             height: 100vh;
             background: url('background.jpg') no-repeat center center/cover;
             text-align: center;
+            margin: 0;
+            padding: 0;
         }
         .container {
             display: flex;
+            flex-wrap: wrap;
             gap: 20px;
+            justify-content: center;
         }
         .image-container {
             position: relative;
@@ -23,11 +27,12 @@
             transition: transform 0.5s ease-in-out;
         }
         .image-container img {
-            width: 420px; /* Increased by 40% from 300px */
+            width: 300px;
             height: auto;
             border-radius: 10px;
             border: 5px solid white;
             transition: transform 0.5s, border-color 1s;
+            max-width: 100%;
         }
         .image-container:hover {
             transform: scale(1.1);
@@ -53,46 +58,11 @@
             background: rgba(0, 0, 0, 0.5);
             padding: 10px 20px;
             border-radius: 10px;
-        }
-        .contact-form {
-            margin-top: 30px;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 20px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 400px;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            font-size: 16px;
-            border-radius: 5px;
-            border: none;
-            display: block;
-        }
-        .contact-form textarea {
-            height: 100px;
-        }
-        .contact-form button {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 10px 20px;
-            font-size: 18px;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .contact-form button:hover {
-            background-color: rgba(255, 255, 255, 0.4);
+            max-width: 90%;
         }
     </style>
 </head>
 <body>
-    <audio id="bg-music" preload="auto">
-        <source src="song1.mp3" type="audio/mpeg">
-    </audio>
-    
     <div class="container">
         <div class="image-container">
             <img src="image1.jpg" alt="Image 1">
@@ -103,34 +73,6 @@
     </div>
     
     <div class="message">Goodbye, take care. Regards, Aryan. Contact me → aryan.xpvr@gmail.com</div>
-
-    <!-- Contact Form -->
-    <div class="contact-form">
-        <h2 style="color:white;">Contact Me</h2>
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="email" id="email" placeholder="Your Email" required>
-        <textarea id="message" placeholder="Your Message" required></textarea>
-        <button onclick="sendEmail()">Send Email</button>
-    </div>
-
-    <script>
-        function sendEmail() {
-            let name = document.getElementById("name").value;
-            let email = document.getElementById("email").value;
-            let message = document.getElementById("message").value;
-
-            if (name && email && message) {
-                window.location.href = `mailto:aryan.xpvr@gmail.com?subject=Message from ${name}&body=Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
-            } else {
-                alert("Please fill out all fields before sending.");
-            }
-        }
-
-        document.body.addEventListener('click', function() {
-            let bgMusic = document.getElementById('bg-music');
-            bgMusic.currentTime = 15; // Start from 15 seconds
-            bgMusic.play();
-        }, { once: true }); // Ensures it only triggers once
-    </script>
 </body>
 </html>
+
