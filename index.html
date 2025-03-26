@@ -1,0 +1,93 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goodbye</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('background.jpg') no-repeat center center/cover;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.5s ease-in-out;
+        }
+        .image-container img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            border: 5px solid white;
+            transition: transform 0.5s, border-color 1s;
+        }
+        .image-container:hover {
+            transform: scale(1.1);
+        }
+        .image-container:hover img {
+            animation: glow 2s infinite;
+        }
+        @keyframes glow {
+            0% { border-color: rgb(255, 0, 0); }
+            14% { border-color: rgb(255, 165, 0); }
+            28% { border-color: rgb(255, 255, 0); }
+            42% { border-color: rgb(0, 255, 0); }
+            56% { border-color: rgb(0, 255, 255); }
+            70% { border-color: rgb(0, 0, 255); }
+            84% { border-color: rgb(255, 0, 255); }
+            100% { border-color: rgb(255, 0, 0); }
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+        .audio-controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <audio id="bg-music" preload="auto">
+        <source src="song1.mp3" type="audio/mpeg">
+    </audio>
+    
+    <div class="container">
+        <div class="image-container">
+            <img src="image1.jpg" alt="Image 1">
+        </div>
+        <div class="image-container">
+            <img src="image2.jpg" alt="Image 2">
+        </div>
+    </div>
+    <div class="message">Goodbye, take care. Regards, Aryan.Contact me --&gt;aryan.xpvr@gmail.com</div>
+    <div class="audio-controls">
+        <audio controls="">
+            <source src="song2.mp3" type="audio/mpeg">    
+        </audio>
+    </div>
+    
+    <script>
+        document.body.addEventListener('click', function() {
+            let bgMusic = document.getElementById('bg-music');
+            bgMusic.currentTime = 15; // Start from 15 seconds
+            bgMusic.play();
+        }, { once: true }); // Ensures it only triggers once
+    </script>
+
+
+
+</body></html>
